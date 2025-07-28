@@ -1,0 +1,38 @@
+package com.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+
+public class MyController {
+	@GetMapping("/hi")
+	public String greet() {
+
+		return "Welcome To Spring Boot";
+	}
+
+	@GetMapping("/add")
+	public int add() {
+
+		int a = 20, b = 30;
+		return a + b;
+	}
+
+	@GetMapping("/myinfo")
+	public String myinfo() {
+
+		String name = "Ajay";
+		int age = 27;
+		String course = "Java";
+		return "Name : " + name + ", Age : " + age + ", Course : " + course;
+	}
+
+	@GetMapping("/radius")
+	public double radius() {
+
+		double r = 5;
+		double area = 3.14 * r * r;
+		return area;
+	}
+}
