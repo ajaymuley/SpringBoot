@@ -1,0 +1,61 @@
+package com.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeTask1 {
+
+//	Write a method to calculate the percentage
+	@GetMapping("/percent")
+	public String calculation() {
+		int Math = 84, Eng = 97, Phy = 86, Chem = 91, Bio = 93;
+		int total = Math + Eng + Phy + Chem + Bio;
+		double percent = total / 5;
+
+		return "Percentage : " + percent;
+	}
+
+//	Write method to calculate the area of a square
+	@GetMapping("/square")
+	public String square() {
+		int side = 6;
+		float area = side * side;
+		return "Area of square : " + area;
+
+	}
+
+// 	Write a method to calculate the area of rectangle
+	@GetMapping("/rectangle")
+	public String rectangle() {
+		int length = 8, width = 3;
+		int area = length * width;
+		return " Area of rectanle : " + area;
+
+	}
+
+// 	Write a method to check if a number is even or odd
+	@GetMapping("/check")
+	public String evenodd() {
+		int num = 8;
+		if (num % 2 == 0) {
+
+			return "Even Number";
+
+		} else
+			return "Odd Number";
+	}
+
+//	Write method to find the maximum of 3 numbers(return max no)
+	@GetMapping("/max")
+	public String max() {
+		int num1 = 52, num2 = 45, num3 = 75;
+		if (num1 > num2 && num1 > num3) {
+			return "Max number is : " + num1;
+		} else if (num2 > num1 && num2 > num3) {
+			return "Max number is : " + num2;
+		} else
+			return "Max number is : " + num3;
+	}
+
+}
