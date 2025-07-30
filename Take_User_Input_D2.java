@@ -2,6 +2,8 @@ package com.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -39,4 +41,55 @@ public class Take_User_Input_D2 {
 		return "Simple Interest Is = " + (p * r * t) / 100;
 	}
 
+	@GetMapping("/display")
+	public String display(@RequestParam String name, @RequestParam int age) {
+		return "My name is " + name + " Age is " + age;
+	}
+
+	@GetMapping("/addition")
+	public String add(@RequestParam int num1, @RequestParam int num2, @RequestParam int num3) {
+
+		return "Addition of 3 numbers = " + (num1 + num2 + num3);
+	}
+
+	@GetMapping("/subtraction")
+	public String sub(@RequestParam int num1, @RequestParam int num2, @RequestParam int num3) {
+
+		return "Subtraction of 3 numbers = " + (num1 - num2 - num3);
+	}
+
+	@GetMapping("/swap")
+	public String swap(@RequestParam int a, @RequestParam int b) {
+
+		int temp = a;
+		a = b;
+		b = temp;
+		return "After swap A is " + a + " and B is " + b;
+	}
+
+	@GetMapping("/circle")
+	public String area(@RequestParam int r) {
+		return "Area of Circle = " + 3.14 * r * r;
+
+	}
+
+	@RequestMapping("/mod")
+	public String mod(@RequestParam int a, @RequestParam int b) {
+
+		return "Result of Mod op : " + (a % b);
+	}
+
+	@RequestMapping("/emp")
+	public String emp_detail(@RequestParam String name, @RequestParam String dept) {
+		return "Employee name is " + name + " and Department is " + dept;
+	}
+
+	
+	 
+	
+	
+	
+	
+	
+	
 }
