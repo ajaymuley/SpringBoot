@@ -24,20 +24,19 @@ public class TesterController {
 		tlist.add(t1);
 
 	}
-
+// Post Mapping >> Add data through Postman
 	@PostMapping("/tester/add")
 	public String addTest(@RequestBody List<Tester> tester) {
 		tlist.addAll(tester);
 		return "Record added Successfully";
-
 	}
-
+// Get Mapping >> Get all data from list
 	@GetMapping("/gettester")
 	public List<Tester> t() {
 
 		return tlist;
 	}
-
+// Delete Controller >> To delete data by using id
 	@DeleteMapping("/deltester/{id}")
 	public String deltester(@PathVariable("id") int id) {
 		for (Tester t : tlist) {
@@ -49,7 +48,7 @@ public class TesterController {
 		}
 		return "No record found";
 	}
-
+// Put Mapping >> To update existing data 
 	@PutMapping("/updatetester")
 	public String updatetester(@RequestParam int id, @RequestBody Tester newtester) {
 
@@ -73,12 +72,10 @@ public class TesterController {
 		if (newtester.getDesignation() != null) {
 			extest.setDesignation(newtester.getDesignation());
 		}
-
 		return "Record updated successfully";
 	}
 
 //	Find By Id
-
 	@GetMapping("/tfindbyid")
 	public Tester findbytid(@RequestParam int id) {
 		for (Tester t : tlist) {
@@ -109,8 +106,6 @@ public class TesterController {
 				return t;
 			}
 		}
-
 		return null;
 	}
-
 }
